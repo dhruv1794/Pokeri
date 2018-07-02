@@ -23,3 +23,14 @@ func (player *Player) AddMoney(money float64) {
 func (player *Player) RemoveMoney(money float64) {
 	(*player).money -= money
 }
+
+//placeBet function places bet which adds money to the pot and reduces money of the player
+
+func (player *Player) placeBet(money float64, pot *Pot) string {
+	if money > (*player).money {
+		return "Sorry you are are short of cash!"
+	}
+	(*player).RemoveMoney(money)
+	(*pot).addMoneyToPot(money)
+	return "Successful"
+}
