@@ -49,7 +49,10 @@ func (d Deck) shuffle() Deck {
 }
 
 //Deal takes in current deck and returns two decks one is one dealt card, and another is remaining cards
-func (d *Deck) deal(playerCount int) {
+func (d *Deck) deal() (Deck, Card) {
 	card := (*d)[0]
-	*d = append(*d[:0], *d[1:]...)
+
+	*d = append((*d)[:0], (*d)[1:]...)
+
+	return *d, card
 }

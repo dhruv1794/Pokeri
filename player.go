@@ -13,3 +13,13 @@ func CreatePlayer(m float64, n string) Player {
 	}
 	return player
 }
+
+//AddMoney adds money for a player
+func (player *Player) AddMoney(money float64) {
+	(*player).money += money
+}
+
+//RemoveMoney removes money from a player
+func (player *Player) RemoveMoney(money float64) {
+	(*player).money -= money
+}
